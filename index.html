@@ -30,10 +30,16 @@
           aria-valuemax="100"
         ></div>
       </div>
-      <h2 class="text-center mt-5">문제</h2>
-      <button type="button" class="btn btn-primary mt-5">Primary</button>
-      <button type="button" class="btn btn-primary mt-5">Primary</button>
+      <h2 id="title" class="text-center mt-5">문제</h2>
+      <input id="type" type="hidden" value="EI">
+      <button id="A" type="button" class="btn btn-primary mt-5">Primary</button>
+      <button id="B" type="button" class="btn btn-primary mt-5">Primary</button>
     </article>
+
+    <input type="hidden" id="EI" value="0">
+    <input type="hidden" id="SN" value="0">
+    <input type="hidden" id="TF" value="0">
+    <input type="hidden" id="JP" value="0">
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -46,9 +52,40 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      var num = 1; //현재 문제 번호
+      var q = {
+        1: {"title":"문제 1번", "type":"EI", "A":"E", "B":"I"},
+        2: {"title":"문제 2번", "type":"SN", "A":"S", "B":"N"},
+        3: {"title":"문제 3번", "type":"TF", "A":"T", "B":"F"},
+        4: {"title":"문제 4번", "type":"JP", "A":"J", "B":"P"}
+      }
       function start() {
         $(".start").hide();
         $(".question").show();
+        next();
+      }
+      
+      $("#A").click(function() {
+        // console.log($("#type").val()); // EI
+        var type = $("#type").val();
+        var preValue = $("#"+type).val(); // $("#EI")를 의미 
+        // 현재 0이고 이제 여기에 1을 더해주면 됨
+        // console.log(preValue+1); // 01로 나옴(String으로 인식)
+        // console.log(parseInt(preValue)+1)); // 정상
+        $("#"+type).val(parseInt(preValue)+1);
+        next();
+      })
+
+      $("#B").click(function() {        
+        next();
+      })
+
+      function next() {
+        $("#title").html(q[num]["title"]);
+        $("#type").val(q[num]["type"]);
+        $("#A").html(q[num]["A"]);
+        $("#B").html(q[num]["B"]);
+        num++;
       }
     </script>
   </body>
