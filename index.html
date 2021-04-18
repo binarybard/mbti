@@ -69,7 +69,6 @@
           data-ad-height  = "100"></ins> 
       <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>      
     </article>
-
     <input type="hidden" id="EI" value="0">
     <input type="hidden" id="SN" value="0">
     <input type="hidden" id="TF" value="0">
@@ -86,6 +85,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
+
       var num = 1; 
       var q = {
         1: {"title": "연말 약속, 다 잡았는데 어쩔 수 없지. 집콕이 곧 안전이다. 근데, 나 집에서 뭐하지?", "type": "EI", "A": "집에 있는게 답답하다.. 친구들과 만나서 수다떨고 싶으니 줌으로 비대면 파티를 연다", "B": "집콕? 오히려 좋아. 집에서 조용히 읽고 싶었던 책을 읽으며 가족들하고 오손도손 보내야지."},
@@ -118,6 +118,7 @@
         "ESFJ": {"animal": "주어진 목표를 이루기 위해 모두가 함께 성장해나가길 원하는 페이스메이커 <strong>고릴라</strong>", "explain": "숨쉬는 것도 내 계획 중 일부! 항상 최고의 아웃풋을 원하기 때문에 계획을 철저하게 세우려 노력해요. 한 번 일을 시작하면 끝까지 성공적으로 진행하려하는 진취적인 성격이에요. 여유로운 걸 불안해하기 때문에 계획이 빡빡한 편이에요. 조금은 자신을 놓는 법을 배울 필요가 있어요. 리더가 되는 경우가 많아 일을 함께 추진할 때 모두가 계획을 잘 수행할 수 있도록 이끌어나가요.", "img": "img/gorilla.png"},
         "ENFJ": {"animal": "내 계획은 모두 조절할 수 있어! 너와 맞추기 위해서라면. 평화주의자 <strong>카피바라</strong>", "explain": "사실...니 계획에 맞추는게 내 계획이야. 조화와 균형을 중시여기기 때문에 남들과 계획을 세울 때 의견을 모으는 걸 중요하게 생각해요. 속해있는 집단의 업무와 목적을 개인의 일보다 우선순위를 높여 생각해요. 계획을 세울 때 뜬구름을 잡는 두루뭉실한 목표보다 현실적인 목표를 세워 진행하는 걸 선호해요. 사람들을 굉장히 좋아하고 배려하지만, 보기보다 철저하고 현실적인 당신. 가끔은 자신만을 위한 계획을 세워보는 것도 좋아요.", "img": "img/capybara.png"},
         "ENTJ": {"animal": "내 사전에 결정장애란 없다! 선택의 순간, 단호하게 결정을 내리는 판사 <strong>호랑이</strong>", "explain": " '오늘은 김치찌개 드시죠!' 계획을 진행함에 있어 결정이 필요한 상황에서 갈팡질팡 하는 일 없이 빠르게 결정하고 진행하는 타입이에요. #### 혼자하는 것보다 다른 사람들과 함께 일을 진행하는 걸 선호해 함께하는 일에서 두각을 나타내요. 계획이 수립될 때 같이 협력해서 아이디어를 도출하는 과정에서 희열을 느껴요. 완벽함을 추구하기 때문에 스스로를 힘들게 할 수 있어요, 가끔은 사람들과 어울리며 여유를 즐겨봐요.", "img": "img/tiger.png"}
+
       }
       function start() {
         $(".start").hide();
@@ -128,15 +129,21 @@
       $("#A").click(function() {
         var type = $("#type").val();        
         var preValue = $("#"+type).val(); 
+
+
+
         $("#"+type).val(parseInt(preValue)+1);
         next();
       })
 
+
       $("#B").click(function() {             
+
         next();
       })
 
       function next() {
+
         if (num == 13) {
           $(".question").hide();
           $(".result").show();          
@@ -156,6 +163,7 @@
           $("#B").html(q[num]["B"]);          
           num++;
         }        
+
       }
     </script>    
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-607a8e56002fd5be"></script>
